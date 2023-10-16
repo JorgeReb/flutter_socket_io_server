@@ -19,12 +19,19 @@
             console.log("Perdimos la comunicación con el servidor")
         });
 
+        socket.on('nuevo-mensaje', function(payload){
+            console.log("Escuchando DESDE movil:", payload);
+        });
 
-        socket.emit('mensaje', {nombre: 'Jorge'});
+        socket.on('active-bands', function(bands){
+            console.clear();
+            console.table("Bandas:", bands);
+        });
 
-        socket.on('mensaje', function(payload){
-            console.log("Escuchando:", payload);
-        })
+        socket.on('add-band', function(bands){
+            console.clear();
+            console.table("Bandas:", bands);
+});
 
     </script>
 </body>
